@@ -1,57 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome Website</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-            max-width: 800px;
-            margin: auto;
-        }
-        header {
-            background: #f4f4f4;
-            padding: 1rem;
-            text-align: center;
-            border-radius: 8px;
-        }
-        section {
-            margin-top: 20px;
-        }
-        footer {
-            margin-top: 40px;
-            font-size: 0.8rem;
-            text-align: center;
-            color: #777;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Thai Consonant Quiz</title>
+
+<style>
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#f5f7fb;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+width:420px;
+}
+
+h1{
+margin:0;
+font-size:28px;
+}
+
+.subtitle{
+margin-top:6px;
+color:#555;
+}
+
+input{
+width:100%;
+padding:12px;
+font-size:16px;
+margin-top:20px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:20px;
+padding:12px 28px;
+font-size:16px;
+background:#2b7cff;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1c63d9;
+}
+
+.hidden{
+display:none;
+}
+
+.letter{
+font-size:90px;
+margin:20px 0;
+}
+
+.option{
+background:#eef0f4;
+padding:12px;
+border-radius:8px;
+margin:10px 0;
+cursor:pointer;
+}
+
+.option:hover{
+background:#dfe5f3;
+}
+
+.hearts{
+font-size:22px;
+color:red;
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <header>
-        <h1>Welcome to My Site</h1>
-        <p>Built with Gemini's help in 2026</p>
-    </header>
+<div class="card" id="welcomeCard">
 
-    <section>
-        <h2>About This Project</h2>
-        <p>This is a simple index file. You can use it as a landing page, a portfolio, or just a place to test your coding skills.</p>
-        
-        <ul>
-            <li><strong>HTML5:</strong> Semantic and clean.</li>
-            <li><strong>CSS:</strong> Minimalist and responsive.</li>
-            <li><strong>Ready:</strong> Just open this in any browser.</li>
-        </ul>
-    </section>
+<h1>CSII Team X presents</h1>
+<div class="subtitle">Thai Consonants</div>
 
-    <footer>
-        <p>&copy; 2026 My Web Journey</p>
-    </footer>
+<input id="nicknameInput" placeholder="Enter your nickname">
+
+<button onclick="startQuiz()">Start Quiz</button>
+
+</div>
+
+
+<div class="card hidden" id="quizCard">
+
+<h2 id="playerName"></h2>
+
+<div class="hearts">❤️ ❤️ ❤️</div>
+
+<p>Remaining: <span id="remaining">35</span></p>
+
+<h3>Thai Consonant Drill</h3>
+
+<div class="letter">ย</div>
+
+<div class="option">bor bai-mai — Middle</div>
+<div class="option">to patak — Middle</div>
+<div class="option">yor yak — Low</div>
+
+</div>
+
+
+<script>
+
+function startQuiz(){
+
+let nickname = document.getElementById("nicknameInput").value;
+
+if(nickname.trim() === ""){
+nickname="Player";
+}
+
+document.getElementById("playerName").innerText = nickname;
+
+document.getElementById("welcomeCard").classList.add("hidden");
+document.getElementById("quizCard").classList.remove("hidden");
+
+}
+
+</script>
 
 </body>
 </html>
